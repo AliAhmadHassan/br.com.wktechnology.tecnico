@@ -1,0 +1,9 @@
+.error-msg {
+  color: red;
+  display: inline-block;
+  font-size: 75%;
+  padding-left: 12px;
+}
+.fix-error-icon { 
+  top: 27px;
+}

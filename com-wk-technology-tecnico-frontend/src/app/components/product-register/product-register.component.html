@@ -1,0 +1,70 @@
+<div class="main-content" *ngIf="category">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-12">
+                        <a href="javascript:" [routerLink]="['/']">Lista de categorias</a> / <a href="javascript:"
+                            [routerLink]="['/product-list', category.id]">Produtos de
+                            {{category.name}}</a> / product: {{product.name}}
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="card-header card-header-rose card-header-icon">
+                        <h4 class="card-title">Cadastro de Produto</h4>
+                    </div>
+                    <div class="card-body">
+                        <div *ngIf="product">
+                            <form method="#" action="#" [formGroup]="form">
+
+                                <div class='form-group col-6 col-md-6 col-sm-6'>
+                                    <label for="txtName">Nome</label>
+                                    <input type="text" class="form-control" matInput id="txtName" name="txtName"
+                                        placeholder="" formControlName="nameFormControl" />
+                                    <app-field-error-display [displayError]="isFieldValid(form, 'nameFormControl')"
+                                        errorMsg="Nome é obrigatorio">
+                                    </app-field-error-display>
+                                </div>
+                                <div class='form-group col-6 col-md-6 col-sm-6'>
+                                    <label for="txtDescription">Descrição</label>
+                                    <input type="text" class="form-control" matInput id="txtDescription"
+                                        name="txtDescription" placeholder="" formControlName="descriptionFormControl" />
+                                </div>
+                                <div class='form-group col-6 col-md-6 col-sm-6'>
+                                    <label for="txtUnitPrice">Preço unitário</label>
+                                    <input type="text" class="form-control" matInput id="txtUnitPrice"
+                                        name="txtUnitPrice" placeholder="" formControlName="unitPriceFormControl" />
+                                </div>
+                                <div class='form-group col-6 col-md-6 col-sm-6'>
+                                    <label for="txtAmount">Quantidade</label>
+                                    <input type="text" class="form-control" matInput id="txtAmount" name="txtAmount"
+                                        placeholder="" formControlName="amountFormControl" />
+                                </div>
+                                <div class='form-group col-6 col-md-6 col-sm-6'>
+                                    <label for="txtAmount">Categoria</label>
+                                    <select class="form-control" [value]="idCategoryFormControl"
+                                        formControlName="idCategoryFormControl">
+                                        <option *ngFor="let categ of categories" [value]="categ.id">
+                                            {{categ.name}}</option>
+                                    </select>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 mt-2">
+                                        <button type="button" class="btn btn-primary"
+                                            (click)="btnSalvar_click()">Salvar</button>&nbsp;
+                                        <a type="button" class="btn btn-secondary"
+                                            [routerLink]="['/product-list', category.id]">Cancelar</a>
+
+
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

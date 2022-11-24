@@ -1,0 +1,83 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12" *ngIf="category">
+                <a href="javascript:" [routerLink]="['/']" >Lista de categorias</a> / Produtos de {{category.name}}
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-rose card-header-icon">
+                        <h4 class="card-title">Lista de Produtos</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table datatable style="width:100%" class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Descrição</th>
+                                        <th>Preço Unitário</th>
+                                        <th>Quantidade</th>
+                                        <th>Categoria</th>
+                                        <th class="text-right"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let product of products">
+                                        <td>{{product.name}}</td>
+                                        <td>{{product.description}}</td>
+                                        <td>{{product.unitPrice}}</td>
+                                        <td>{{product.amount}}</td>
+                                        <td>{{product.category.name}}</td>
+                                        <td class="text-right">
+                                            <a href="javascript:" [routerLink]="['/product-register', product.category.id, product.id]" >
+                                                <i class="material-icons">create</i>
+                                            </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <a href="javascript:" (click)="btnDelete_Click(product)">
+                                                <i class="material-icons">delete</i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer" *ngIf="category">
+                        <a href="javascript:" title="Nova categoria" [routerLink]="['/product-register', category.id]" >
+                            <i class="material-icons">add_circle_outline</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Classic Modal -->
+<div class="modal fade" id="newEditDetailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content modal-content-transparent">
+            <div class="card ">
+                <div class="card-header card-header-rose card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">school</i>
+                    </div>
+                    <h4 class="card-title">Categoria</h4>
+                </div>
+                <!--                 <div class="card-body ">
+                    <app-user-new-edit (onSaveComplete)="onSaveComplete($event)" #userNewEditDetail></app-user-new-edit>
+                </div>
+                <div class="card-footer ">
+                    <button mat-raised-button type="button" [ngClass]="{invisible: isDetail}" class="btn btn-link" (click)="save_click()">Salvar</button>
+                    <button mat-raised-button type="button" class="btn btn-danger btn-link"
+                        data-dismiss="modal">{{'close' | translate}}</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>

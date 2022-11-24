@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Com.WkTechnology.Tecnico.Domain\Com.WkTechnology.Tecnico.Domain.csproj" />
+    <ProjectReference Include="..\Com.WkTechnology.Tecnico.Service\Com.WkTechnology.Tecnico.Service.csproj" />
+    <ProjectReference Include="..\Com.WkTechnology.Tecnico.Data\Com.WkTechnology.Tecnico.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.1.1" />
+  </ItemGroup>
+
+</Project>

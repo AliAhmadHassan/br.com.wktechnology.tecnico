@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Com.WkTechnology.Tecnico.CrossCutting": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:58847;http://localhost:58848"
+    }
+  }
+}

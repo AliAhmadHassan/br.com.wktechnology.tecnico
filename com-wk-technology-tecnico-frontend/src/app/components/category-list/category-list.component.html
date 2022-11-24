@@ -1,0 +1,48 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-rose card-header-icon">
+                        <h4 class="card-title">Lista de Categorias</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table datatable style="width:100%" class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Descrição</th>
+                                        <th class="text-right"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let category of categories">
+                                        <td>{{category.name}}</td>
+                                        <td>{{category.description}}</td>
+                                        <td class="text-right">
+                                            <a href="javascript:" (click)="btnProducts_Click(category)" title="Ver os produtos">
+                                                <i class="material-icons">sell</i>
+                                            </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <a href="javascript:" (click)="btnEditar_Click(category)" title="Editar a categoria {{category.name}}">
+                                                <i class="material-icons">create</i>
+                                            </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <a href="javascript:" (click)="btnDelete_Click(category)" title="Apagar a categoria {{category.name}}">
+                                                <i class="material-icons">delete</i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="javascript:" title="Nova categoria" [routerLink]="['/category-register']" >
+                            <i class="material-icons">add_circle_outline</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
