@@ -1,5 +1,31 @@
+CREATE TABLE `category`(
+	`id` bigint AUTO_INCREMENT NOT NULL,
+	`name` varchar(50) NOT NULL,
+	`description` varchar(50),
+	primary key ( `id` ASC )
+    );
+
+CREATE TABLE `product`(
+	`id` bigint AUTO_INCREMENT NOT NULL,
+	`name` varchar(50) NOT NULL,
+	`description` varchar(50),
+	`unit_price` decimal(12, 4) NOT NULL,
+	`amount` decimal(12, 4) NOT NULL,
+    `idcategory` bigint,
+	primary key ( `id` ASC )
+);
+
+ALTER TABLE `product` ADD CONSTRAINT `fk_product_category_idcategory` FOREIGN KEY(`idcategory`) REFERENCES `category` (`id`);
+
+LOCK TABLES `category` WRITE;
+INSERT INTO `category` VALUES (1,'teste','teste description'),(4,'teste 2','Descrição do teste novo teste');
+UNLOCK TABLES;
+
+LOCK TABLES `product` WRITE;
+INSERT INTO `product` VALUES (1,'Prod1','Descricao Novo Teste',201.0000,5.0000,1),(3,'prod2','',100.0000,2.0000,4),(4,'prod2',NULL,100.0000,2.0000,4),(6,'prod5','string',100.0000,5.0000,1),(7,'prod5',NULL,100.0000,5.0000,1),(8,'prod5',NULL,100.0000,5.0000,1),(9,'prod5',NULL,100.0000,5.0000,1),(10,'teste 10',NULL,100.0000,5.0000,1),(11,'Teste 11',NULL,50.0000,2.0000,4);
+UNLOCK TABLES;
+
 DELIMITER $$
-USE `wktechnology`$$
 CREATE PROCEDURE `spi_category` (name_in  varchar(50), description_in varchar(50), out id_out bigint)
 BEGIN
 	INSERT INTO `category`(`name`, `description`)
